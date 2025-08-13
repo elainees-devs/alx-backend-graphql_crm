@@ -1,12 +1,15 @@
 import os
+import django
 import random
-from datetime import datetime
 
-# ----------------- Setup Django -----------------
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "graphql_crm.settings")
+# Set the Django settings module
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "alx_backend_graphql_crm.settings")
 
+# Initialize Django
+django.setup()
+
+# Import models
 from crm.models import Customer, Product, Order
-
 
 # ----------------- Seed Customers -----------------
 customers_data = [
