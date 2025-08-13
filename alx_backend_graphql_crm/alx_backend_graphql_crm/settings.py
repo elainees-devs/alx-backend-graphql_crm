@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-=--0$nwm3b02k$0h-a__bfnzcy!)i(mc_8d6g)&o3gn6!wsu^1"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     "django_filters",
     "crm",
 ]
+
+GRAPHENE = {
+    'SCHEMA': 'alx_backend_graphql_crm.schema.schema'
+}
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
