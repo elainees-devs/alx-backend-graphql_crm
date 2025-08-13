@@ -9,12 +9,12 @@ venv/
 env/
 ENV/
 .venv/
+.env
 
 # Django
 *.log
 *.pot
 *.py[cod]
-__pycache__/
 db.sqlite3
 *.sqlite3
 media/
@@ -30,3 +30,9 @@ local_settings.py
 # macOS
 .DS_Store
 
+# Local database / temporary files
+*.db
+.tables
+
+# Django migrations (optional)
+crm/migrations/
