@@ -68,3 +68,6 @@ yarn-error.log
 
 # Windows
 Thumbs.db
+
+crm/__init__.py
+
