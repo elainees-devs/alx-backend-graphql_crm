@@ -5,7 +5,7 @@ from graphene import relay
 from django.db import transaction
 from django.core.exceptions import ValidationError
 import re
-from crm.models import Customer, Product, Order
+from crm.models import Product, Customer, Order
 import django_filters
 
 # ----------------- Filters -----------------
