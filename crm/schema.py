@@ -36,6 +36,27 @@ class CustomerType(DjangoObjectType):
 class ProductType(DjangoObjectType):
     class Meta:
         model = Product
+        fields=("id","name", "stock" )
+class UpdateLowStockProducts(graphene.Mutation):
+    updated_products=graphene.List(ProductType)
+    success=graphene.String()
+
+    class Arguments:
+        pass
+
+    def mutate(root, info):
+        low_stock_products=Product.objects.filter(stock_lt=10)
+        updated_list=[]
+
+        for product in low_stock_products:
+            product.stock +=10
+            product.save()
+            updated_list.append(product)
+
+        return UpdateLowStockProducts(
+            updated_products=updated_list,
+            success=f"{len(updated_list)} products restocked successfully."
+            )
 
 
 class OrderType(DjangoObjectType):
@@ -181,3 +202,4 @@ class Mutation(graphene.ObjectType):
     bulk_create_customers = BulkCreateCustomers.Field()
     create_product = CreateProduct.Field()
     create_order = CreateOrder.Field()
+    update_low_stock_products = UpdateLowStockProducts.Field()
