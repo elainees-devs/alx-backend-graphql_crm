@@ -45,7 +45,7 @@ class UpdateLowStockProducts(graphene.Mutation):
         pass
 
     def mutate(root, info):
-        low_stock_products=Product.objects.filter(stock_lt=10)
+        low_stock_products=Product.objects.filter(stock__lt=10)
         updated_list=[]
 
         for product in low_stock_products:
